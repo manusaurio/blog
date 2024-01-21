@@ -1,0 +1,13 @@
+{{- define "main" -}}
+<main class="container p-2">
+  <h2 class="title pt-5">Categorías</h2>
+  <p>Página en construcción.</p>
+  <div class="content">
+    <ul>
+    {{- range .Pages -}}
+      <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+    {{- end -}}
+    </ul>
+  </div>
+</main>
+{{- end -}}

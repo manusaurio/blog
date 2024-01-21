@@ -1,0 +1,58 @@
+@charset "utf-8";
+
+/** Bulma-based styles */
+.hugo-article .hugo-article-body {
+  >*:not(figure):not(img),
+  figure > *:not(img) {
+    @extend .px-2;
+  }
+
+  h3 {
+    @extend .pt-5;
+
+    &::first-letter {
+      margin-left: 1rem !important;
+    }
+
+    @extend .is-size-3;
+    @extend .has-text-weight-semibold;
+  }
+
+  > p {
+    &::first-letter {
+      margin-left: 1rem !important;
+    }
+
+    @extend .is-size-4;
+  }
+
+  > p + p {
+    @extend .pt-4;
+  }
+
+  figure {
+    @extend .py-4;
+
+    display: flex;
+    flex-direction: column;
+
+    * {
+      align-self: center;
+    }
+
+    figcaption {
+      @extend .is-italic;
+      text-align: center;
+
+      h4 {
+        @extend .has-text-weight-semibold;
+      }
+    }
+  }
+}
+
+.hugo-article header {
+  >*:not(figure) {
+    @extend .px-2;
+  }
+}

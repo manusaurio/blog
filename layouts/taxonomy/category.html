@@ -1,0 +1,10 @@
+{{- define "head" -}}
+{{- end -}}
+{{- define "main" -}}
+<main class="container p-2">
+  <h2 class="title pt-5">Categoría «{{ .Title }}»</h2>
+  {{ .Scratch.Set "pagesArg" .Pages }}
+  {{ partial "Posts.html" . }}
+  {{ .Scratch.Delete "pagesArg" }}
+</main>
+{{- end -}}

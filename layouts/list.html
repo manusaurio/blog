@@ -1,0 +1,56 @@
+{{- define "main" -}}
+{{ with index (partial "GetFeatured.html" 1) 0 }}
+<article class="hero is-small is-info"
+         style="
+                background-image: url('{{ ((.Resources.GetMatch "featured-image.*")).RelPermalink }}');
+                background-size: cover;
+                background-position: center;
+                "
+         >
+
+  <div class="hero-body px-0 mx-0" style="backdrop-filter: grayscale(.0) brightness(.30) blur(10px);">
+    <div class="container px-2">
+      <div class="columns is-vcentered">
+        <div class="column">
+          <a href="{{ .RelPermalink }}">
+            <figure class="image is-5by3">
+              <img class="object-fit-cover" src="{{ (.Resources.GetMatch "featured-image.*").RelPermalink }}">
+            </figure>
+          </a>
+        </div>
+        <div class="column is-flex is-flex-direction-column is-justify-content-center">
+          <div class="mb-4 is-flex gap-xxs">
+            {{- range .Params.categories -}}
+            <a href="{{ partial "GetCategoryPermalink" . }}">
+              <span class="tag">
+                {{ . }}
+              </span>
+            </a>
+            {{- end -}}
+          </div>
+          <a href="{{ .RelPermalink }}">
+          <h2 class="title">
+            {{ .Title }}
+          </h2>
+          <p class="subtitle">
+            {{ .Description }}
+          </p>
+          <div class="subtitle is-6">
+            <time class="is-flex-grow-1"  datetime="{{ partial "ToISO6801" 0 }}">
+              {{- .Date | time.Format ":date_long" -}}
+            </time>
+          </div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</article>
+{{ end }}
+
+<main class="container p-2">
+  {{ .Scratch.Set "pagesArg" (where .Site.RegularPages "Type" "post") }}
+  {{ partial "Posts.html" . }}
+</main>
+{{- end -}}

@@ -1,0 +1,22 @@
+@charset "utf-8";
+
+@font-face {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 700;
+  src: url("nunito.woff2") format('woff2');
+}
+
+@font-face {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 400;
+  src: url("nunito.woff2") format('woff2');
+}
+
+@import './global-variables.scss';
+
+@import './bulma/bulma.sass';
+@import './utils.scss';
+@import './icons.scss';
+@import './article.scss';
