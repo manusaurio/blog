@@ -1,3 +1,6 @@
-baseURL: 'https://susurr.ar'
+baseURL: 'https://susurr.ar/'
 languageCode: 'es-ar'
 title: 'Susurrar'
+defaultContentLanguage: 'es'
+taxonomies:
+  category: 'categories'
