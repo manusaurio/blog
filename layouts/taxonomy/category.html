@@ -1,5 +1,8 @@
-{{- define "head" -}}
-{{- end -}}
+{{- define "head" }}
+<meta property="og:title" content="{{ .Site.Title }} - {{ .Title }}" />
+<meta property="og:type" content="article" />
+<meta property="og:description" content="Artículos sobre {{ .Title }}" />
+{{ end -}}
 {{- define "main" -}}
 <main class="container p-2">
   <h2 class="title pt-5">Categoría «{{ .Title }}»</h2>
