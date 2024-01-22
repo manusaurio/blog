@@ -14,7 +14,7 @@
         <div class="column">
           <a href="{{ .RelPermalink }}">
             <figure class="image is-5by3">
-              <img class="object-fit-cover" src="{{ (.Resources.GetMatch "featured-image.*").RelPermalink }}">
+              <img class="object-fit-cover" src="{{ (.Resources.GetMatch "featured-image.*").RelPermalink }}" alt="{{ .Params.altImgText }}">
             </figure>
           </a>
         </div>

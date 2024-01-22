@@ -2,7 +2,7 @@
     {{- range $p := .Scratch.Get "pagesArg" -}}
     <article class="card is-flex is-flex-direction-column">
       <div class="card-image">
-        <a href="{{ $p.RelPermalink }}">
+        <a href="{{ $p.RelPermalink }}" aria-label="Leer {{ .Title }}">
           <figure class="image is-5by3">
             <img class="object-fit-cover"
                  src="{{ ((.Resources.GetMatch "featured-image.*").Resize "740x webp q90").RelPermalink }}"
