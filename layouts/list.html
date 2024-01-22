@@ -1,8 +1,17 @@
+{{ define "head" }}
+{{ with .OutputFormats.Get "RSS" -}}
+<link rel="alternate" {{ printf "type=%q" .MediaType.Type | safeHTMLAttr }} href="{{ .Permalink }}" title="Publicaciones en {{ site.Title }}" />
+{{- end }}
+{{ with .Description }}<meta name="description" content="{{ . }}" />{{ end }}
+<meta property="og:title" content="Home" />
+<meta property="og:description" content="{{ .Description }}" />
+{{- end }}
+
 {{- define "main" -}}
 {{ with index (partial "GetFeatured.html" 1) 0 }}
 <article class="hero is-small is-info"
          style="
-                background-image: url('{{ ((.Resources.GetMatch "featured-image.*")).RelPermalink }}');
+                background-image: url('{{ ((.Resources.GetMatch "featured-image.*").Fill "775x465 center webp q90").RelPermalink }}');
                 background-size: cover;
                 background-position: center;
                 "
@@ -14,7 +23,7 @@
         <div class="column">
           <a href="{{ .RelPermalink }}">
             <figure class="image is-5by3">
-              <img class="object-fit-cover" src="{{ (.Resources.GetMatch "featured-image.*").RelPermalink }}" alt="{{ .Params.altImgText }}">
+              <img class="object-fit-cover" src="{{ ((.Resources.GetMatch "featured-image.*").Fill "775x465 center webp q90").RelPermalink }}" alt="{{ .Params.altImgText }}">
             </figure>
           </a>
         </div>

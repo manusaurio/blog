@@ -2,10 +2,11 @@
 <html lang="es-ar">
   <head>
     <meta charset="utf-8">
-    <title>{{ .Site.Title }}{{ with .Title }} - {{ . }}{{- end -}}
-    </title>
+    <title>{{ .Site.Title }}{{ with .Title }} - {{ . }}{{- end -}}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     {{- block "head" . -}}{{- end -}}
+    <meta property="og:locale" content="es_AR" />
+    <meta property="og:site_name" content="{{ .Site.Title }}">
     <link rel="stylesheet" href="{{ (resources.Get "main.scss" | toCSS | minify | fingerprint).RelPermalink }}">
   </head>
   <body class="is-flex is-flex-direction-column" style="height: 100vh">

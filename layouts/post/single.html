@@ -1,5 +1,18 @@
-{{- define "head" -}}
+{{ define "head" }}
+{{- $page := . }}
+<meta name="description" content="{{ .Description }}" />
+<meta property="og:title" content="{{ .Title }}" />
+<meta property="og:description" content="{{ .Description }}" />
+{{ with .Resources.GetMatch "featured-image.*" -}}
+{{- $resized := .Resize "750x q70 jpg" -}}
+<meta property="og:image" content="{{ $resized.Permalink }}" />
+<meta property="og:image:width" content="{{ $resized.Width }}" />
+<meta property="og:image:height" content="{{ $resized.Height }}" />
+{{- with $page.Params.altImgText }}
+<meta property="og:image:alt" content="{{ . }}" />
 {{- end -}}
+{{- end }}
+{{ end }}
 
 {{- define "main" -}}
 <main class="container py-5">
