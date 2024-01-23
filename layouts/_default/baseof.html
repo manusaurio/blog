@@ -22,14 +22,6 @@
       </a>
       </div>
       <div class="navbar-menu">
-        <div class="navbar-start">
-          <a class="navbar-item">
-            <span><i class="mycon rss big" title="RSS"></i>RSS</span>?
-          </a>
-          <a class="navbar-item">
-            <span><i class="mycon mastodon big" title="Mastodon"></i>Mastodon</span>
-          </a>
-        </div>
         <div class="navbar-end">
           <a class="navbar-item" href="{{ relURL "categories" }}">
             Categorías
@@ -46,10 +38,10 @@
     </div>
     <footer class="footer py-6">
       <div class="content has-text-centered">
-        {{ .Site.Title }} es un blog personal
+        <a href="{{ absURL "index.xml" }}" aria-label="RSS"><i class="mycon rss big" title="RSS"></i>RSS</a>
       </div>
       <div class="content has-text-centered">
-        <a property="dct:title" rel="cc:attributionURL" href="{{ absURL "" }}">{{ .Site.Title }}</a> © 2024 está licenciado bajo <a href="http://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer">CC BY 4.0</a>
+        <a property="dct:title" rel="cc:attributionURL" href="{{ absURL "" }}">{{ .Site.Title }}</a> © 2024 es un blog personal licenciado bajo <a href="http://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer">CC BY 4.0</a>
       </div>
     </footer>
   </body>
