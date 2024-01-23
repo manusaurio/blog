@@ -18,7 +18,7 @@
 {{- define "main" -}}
 <main class="container py-5">
   <article class="hugo-article">
-    <header class="container is-max-desktop my-5">
+    <header class="container is-max-desktop mt-5">
       <div class="is-flex gap-xxs pb-2">
         {{- range .Params.categories -}}
         <a href="{{ partial "GetCategoryPermalink" . }}">
@@ -29,8 +29,8 @@
         {{- end -}}
       </div>
       <p class="is-size-7">{{- .Date | time.Format ":date_long" -}}</p>
-      <h2 class="title is-1">{{ .Title }}</h2>
-      <p class="subtitle is-size-4 is-italic">{{ .Description }}</p>
+      <h2 class="title is-1 is-size-3-mobile">{{ .Title }}</h2>
+      <p class="subtitle is-size-4 is-size-5-mobile is-italic">{{ .Description }}</p>
       <figure class="image is-5by3">
         <img class="object-fit-cover"
              src="{{ (.Resources.GetMatch "featured-image.*").RelPermalink }}"
