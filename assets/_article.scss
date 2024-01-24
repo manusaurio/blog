@@ -1,10 +1,15 @@
 @charset "utf-8";
 
 /** Bulma-based styles */
+.hugo-article {
+  --article-padding: #{$article-padding};
+}
+
 .hugo-article .hugo-article-body {
   >*:not(figure):not(img),
   figure > *:not(img) {
-    @extend .px-2;
+    padding-left: var(--article-padding);
+    padding-right: var(--article-padding);
   }
 
   h3 {
@@ -55,6 +60,7 @@
 
 .hugo-article header {
   >*:not(figure) {
-    @extend .px-2;
+    padding-left: var(--article-padding);
+    padding-right: var(--article-padding);
   }
 }
