@@ -1,7 +1,4 @@
-{{ define "head" }}
-{{ with .OutputFormats.Get "RSS" -}}
-<link rel="alternate" {{ printf "type=%q" .MediaType.Type | safeHTMLAttr }} href="{{ .Permalink }}" title="Publicaciones en {{ site.Title }}" />
-{{- end }}
+{{ define "head" -}}
 {{ with .Description }}<meta name="description" content="{{ . }}" />{{ end }}
 <meta property="og:title" content="Home" />
 <meta property="og:type" content="blog" />

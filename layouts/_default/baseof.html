@@ -4,6 +4,9 @@
     <meta charset="utf-8">
     <title>{{ .Site.Title }}{{ with .Title }} - {{ . }}{{- end -}}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    {{ with .OutputFormats.Get "RSS" -}}
+    <link rel="alternate" {{ printf "type=%q" .MediaType.Type | safeHTMLAttr }} href="{{ .Permalink }}" title="Publicaciones en {{ site.Title }}" />
+    {{ end -}}
     {{- block "head" . -}}{{- end -}}
     <meta property="og:locale" content="es_AR" />
     <meta property="og:site_name" content="{{ .Site.Title }}">
