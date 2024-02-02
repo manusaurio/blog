@@ -47,3 +47,23 @@
 @import './utils.scss';
 @import './icons.scss';
 @import './article.scss';
+
+.navbar {
+  position: relative;
+
+  &-menu {
+    @media screen and (max-width: 1023px) {
+      transition: all .25s;
+      position: absolute;
+      width: 100vw;
+      display: block;
+      transform: translateX(100%);
+      opacity: 0;
+
+      &.is-active {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+  }
+}

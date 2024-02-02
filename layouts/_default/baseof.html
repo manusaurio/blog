@@ -18,13 +18,14 @@
         <a class="navbar-item" href="{{ relURL "" }}">
           <h1 class="title is-1 has-text-light">Susurrar</h1>
         </a>
-        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"    data-target="navbarBasicExample">
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-      </a>
+        <a role="button" id="navbarBurger" class="navbar-burger" aria-label="menu" aria-expanded="false"    data-target="navbarBasicExample">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
       </div>
-      <div class="navbar-menu">
+
+      <div class="navbar-menu" id="navbarMenu">
         <div class="navbar-end">
           <a class="navbar-item" href="{{ relURL "categories" }}">
             Categorías
@@ -47,5 +48,15 @@
         <a property="dct:title" rel="cc:attributionURL" href="{{ absURL "" }}">{{ .Site.Title }}</a> © 2024 es un blog personal licenciado bajo <a href="http://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer">CC BY 4.0</a>
       </div>
     </footer>
+    <!-- navbar's toggle -->
+    <script>
+      const navbarBurger = document.getElementById('navbarBurger');
+      const navbarMenu = document.getElementById('navbarMenu');
+      
+      navbarBurger.addEventListener('click', () => {
+        navbarBurger.classList.toggle('is-active');
+        navbarMenu.classList.toggle('is-active');
+      });
+    </script>
   </body>
 </html>
