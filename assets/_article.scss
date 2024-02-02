@@ -12,6 +12,12 @@
     padding-right: var(--article-padding);
   }
 
+  // Add padding to the first element,
+  // if it hasn't specified for one:
+  :first-child {
+    padding-top: var(--article-padding);
+  }
+
   h3 {
     @extend .pt-5;
 
