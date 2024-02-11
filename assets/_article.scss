@@ -20,7 +20,14 @@
 }
 
 .hugo-article .hugo-article-body {
-  >*:not(figure):not(img),
+  // Add padding to every direct children that
+  // are not <figure> or <img>, and add padding to
+  // every non-<img> inside figure.
+  // This makes the imgs fill the available horizontal
+  // space if they're big enough, although it does not work
+  // for markdown's ![alt](url) format because they are
+  // enclosed in <p> by default
+  > *:not(figure):not(img),
   figure > *:not(img) {
     padding-left: var(--article-padding);
     padding-right: var(--article-padding);
