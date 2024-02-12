@@ -1,5 +1,15 @@
 @charset "utf-8";
 
+@mixin responsive-padding {
+  padding-left: var(--article-padding);
+  padding-right: var(--article-padding);
+
+  @media screen and (min-width: $desktop) {
+    padding-left: unset;
+    padding-right: unset;
+  }
+}
+
 /** Bulma-based styles */
 .hugo-article {
   --article-padding: #{$article-padding};
@@ -15,8 +25,7 @@
   // enclosed in <p> by default
   > *:not(figure):not(img),
   figure > *:not(img) {
-    padding-left: var(--article-padding);
-    padding-right: var(--article-padding);
+    @include responsive-padding;
   }
 
   // Add padding to the first element,
@@ -73,7 +82,6 @@
 
 .hugo-article header {
   >*:not(figure) {
-    padding-left: var(--article-padding);
-    padding-right: var(--article-padding);
+    @include responsive-padding;
   }
 }
