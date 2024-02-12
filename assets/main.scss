@@ -52,8 +52,11 @@
   position: relative;
 
   &-menu {
+    // TODO: implement a solution that does not glitch out
+    // while resizing the window and transitions back and forth.
+    // This will do for now.
     @media screen and (max-width: 1023px) {
-      transition: all .25s;
+      transition: opacity .25s;
       position: absolute;
       width: 100vw;
       display: block;
