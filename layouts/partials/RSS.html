@@ -63,17 +63,28 @@
     {{- with .OutputFormats.Get "RSS" }}
     {{ printf "<atom:link href=%q rel=\"self\" type=%q />" .Permalink .MediaType | safeHTML }}
     {{- end }}
-    {{- range $pages }}
+    {{- range $page := $pages }}
     <item>
       <title>{{ .Title }}</title>
       <link>{{ .Permalink }}</link>
       <pubDate>{{ .Date.Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }}</pubDate>
       {{- with $authorEmail }}<author>{{ . }}{{ with $authorName }} ({{ . }}){{ end }}</author>{{ end }}
       <guid>{{ .Permalink }}</guid>
-      <description>{{ .Summary | transform.XMLEscape | safeHTML }}</description>
+      <description>{{ (default .Summary .Description) | transform.XMLEscape | safeHTML }}</description>
       {{- with .Resources.GetMatch "featured-image.*" }}
       <enclosure url="{{ .Permalink }}" length="0" type="{{ .MediaType.Type }}"/>
-      <media:content type="{{ .MediaType.Type }}" medium="{{ .MediaType.MainType }}" width="{{ .Width }}" height="{{ .Height }}" url="{{ .Permalink }}"/>
+      <media:content type="{{ .MediaType.Type }}" medium="{{ .MediaType.MainType }}" width="{{ .Width }}" height="{{ .Height }}" url="{{ .Permalink }}">
+        {{- with $page.Params.imgCopyrightHolder }}
+        <media:credit>
+          {{- . -}}
+        </media:credit>
+        {{- end }}
+        {{- with $page.Params.imgLicense }}
+        <media:license type="text/html">
+          {{- . -}}
+        </media:license>
+        {{- end }}
+      </media:content>
       {{- end }}
     </item>
     {{- end }}

@@ -3,11 +3,14 @@
   <article class="card is-flex is-flex-direction-column">
     <div class="card-image">
       <a href="{{ $p.RelPermalink }}" aria-label="Leer {{ .Title }}">
-        <figure class="image is-5by3">
+        <figure class="image is-5by3 figure-legal">
           <img class="object-fit-cover"
                src="{{ ((.Resources.GetMatch "featured-image.*").Fill "750x450 center webp q70").RelPermalink }}"
                alt="{{ $p.Params.altImgText }}"
                >
+            {{ with .Params.imgLegalText -}}
+            <figcaption class="figure-legal-text is-size-7">{{ . }}</figcaption>
+            {{- end }}
         </figure>
       </a>
     </div>

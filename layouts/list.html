@@ -20,8 +20,11 @@
       <div class="columns is-vcentered">
         <div class="column">
           <a href="{{ .RelPermalink }}">
-            <figure class="image is-5by3">
+            <figure class="image is-5by3 figure-legal">
               <img class="object-fit-cover" src="{{ ((.Resources.GetMatch "featured-image.*").Fill "775x465 center webp q90").RelPermalink }}" alt="{{ .Params.altImgText }}">
+              {{ with .Params.imgLegalText -}}
+              <figcaption class="figure-legal-text is-size-7">{{ . }}</figcaption>
+              {{- end }}
             </figure>
           </a>
         </div>

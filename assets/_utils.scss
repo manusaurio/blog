@@ -30,3 +30,17 @@
     }
   }
 }
+
+figure.figure-legal {
+  position: relative;
+
+  figcaption.figure-legal-text {
+    position: absolute;
+    z-index: 200;
+    left: 0;
+    bottom: 0;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 0.2rem;
+  }
+}

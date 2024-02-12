@@ -31,7 +31,7 @@
       <p class="is-size-7">{{- .Date | time.Format ":date_long" -}}</p>
       <h2 class="title is-1 is-size-3-mobile">{{ .Title }}</h2>
       <p class="subtitle is-size-4 is-size-5-mobile is-italic">{{ .Description }}</p>
-      <figure class="image is-5by3">
+      <figure class="image is-5by3 figure-legal is-size-7">
         <img class="object-fit-cover"
              src="{{ (.Resources.GetMatch "featured-image.*").RelPermalink }}"
              alt="{{ .Params.altImgText }}"
