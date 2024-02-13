@@ -1,7 +1,7 @@
 ---
 title: X, el falso vox populi
 date: 2024-02-05T16:18:35-03:00
-draft: true
+draft: false
 featured: true
 description: Tras su adquisición por Elon Musk, el ex-pájaro azul parece estar tornándose en un alt-tech. Es necesario reconocer qué posibilitó esto, las soluciones propuestas y qué falencias presentan dichas soluciones.
 categories:
