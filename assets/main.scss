@@ -38,6 +38,7 @@
 @import './bulma/sass/helpers/color.sass';
 @import './bulma/sass/helpers/flexbox.sass';
 @import './bulma/sass/helpers/visibility.sass';
+@import './bulma/sass/helpers/overflow.sass';
 
 @import './bulma/sass/grid/columns.sass';
 
@@ -60,12 +61,12 @@
       position: absolute;
       width: 100vw;
       display: block;
-      transform: translateX(100%);
+      transform: scale(0);
       opacity: 0;
 
       &.is-active {
         opacity: 1;
-        transform: translateX(0);
+        transform: scale(1);
       }
     }
   }
