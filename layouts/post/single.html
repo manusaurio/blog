@@ -11,7 +11,12 @@
 <meta property="og:image:height" content="{{ $resized.Height }}" />
 {{- with $page.Params.altImgText }}
 <meta property="og:image:alt" content="{{ . }}" />
-{{- end -}}
+{{- end }}
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="{{ $page.Title }}" />
+<meta name="twitter:image" content="{{ $resized.Permalink }}" />
+<meta name="twitter:url" content="{{ $page.Permalink  }}" />
+<meta name="twitter:description" content="{{ $page.Description }}" />
 {{- end }}
 {{ end }}
 
