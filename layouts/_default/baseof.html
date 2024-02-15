@@ -7,7 +7,7 @@
     {{ with .OutputFormats.Get "RSS" -}}
     <link rel="alternate" {{ printf "type=%q" .MediaType.Type | safeHTMLAttr }} href="{{ .Permalink }}" title="Publicaciones en {{ site.Title }}" />
     {{ end -}}
-    {{- block "head" . -}}{{- end -}}
+    {{ block "head" . }}{{- end }}
     <meta property="og:locale" content="es_AR" />
     <meta property="og:site_name" content="{{ .Site.Title }}">
     <link rel="stylesheet" href="{{ (resources.Get "main.scss" | toCSS | minify | fingerprint).RelPermalink }}">
