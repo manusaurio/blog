@@ -29,8 +29,8 @@
   }
 
   // Add padding to the first element,
-  // if it hasn't specified for one:
-  :first-child {
+  // if it hasn't specified any:
+  > :first-child {
     padding-top: var(--article-padding);
   }
 
