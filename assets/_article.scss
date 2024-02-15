@@ -59,6 +59,10 @@
     @extend .pt-4;
   }
 
+  > .highlight {
+    @extend .py-4;
+  }
+
   figure {
     @extend .py-4;
 
