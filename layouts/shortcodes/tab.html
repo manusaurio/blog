@@ -1,0 +1,9 @@
+{{ $pls := .Parent.Scratch -}}
+
+{{ if not ($pls.Get "tabs") }}
+  {{ $pls.Set "tabs" slice }}
+{{ end }}
+
+{{ with .Inner }}
+  {{ $pls.Add "tabs" (dict "label" ($.Get "label") "content" .) -}}
+{{ end -}}

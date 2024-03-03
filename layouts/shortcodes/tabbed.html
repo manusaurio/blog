@@ -1,0 +1,39 @@
+{{ $ps := .Page.Scratch -}}
+{{ $ls := .Scratch -}}
+
+{{ if eq ($ps.Get "currentTabGroupId") nil -}}
+  {{ $ps.Set "currentTabGroupId" 0 -}}
+{{ else -}}
+  {{ $ps.Add "currentTabGroupId" 1 -}}
+{{ end -}}
+
+{{ $currentTabGroupId := $ps.Get "currentTabGroupId" -}}
+
+{{ with .Inner }}{{ end }}
+
+<div id="tabbed-{{ $currentTabGroupId }}" class="tabbed-group">
+  <div class="tabs is-boxed">
+    <ul>
+    {{ range $i, $tab := $ls.Get "tabs" -}}
+      <li {{ cond (eq $i 0) " class=\"is-active\"" "" | safeHTMLAttr -}}
+          data-tab-id="{{ $i }}"
+          >
+        <a role="button" tabindex="0">
+          {{ $tab.label }}
+        </a>
+      </li>
+    {{ end -}}
+    </ul>
+  </div>
+
+  {{ range $i, $tab := $ls.Get "tabs" -}}
+  <div class="tabbed{{ cond (ne $i 0) " is-hidden" "" }}"
+       data-tab-id="{{ $i }}"
+       >
+    {{ $tab.content }}
+  </div>
+  {{ end -}}
+
+  {{ $ps.Delete "tabs" -}}
+</div>
+{{ .Page.Scratch.Set "enableTabScript" true -}}

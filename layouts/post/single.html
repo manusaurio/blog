@@ -51,4 +51,9 @@
     </div>
   </article>
 </main>
+
+{{ if .Page.Scratch.Get "enableTabScript" -}}
+<script defer src="{{ (resources.Get "js/tabs.js" | resources.Minify | resources.Fingerprint ).RelPermalink }}"></script>
+{{- end -}}
+
 {{- end -}}

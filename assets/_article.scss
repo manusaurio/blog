@@ -59,8 +59,16 @@
     @extend .pt-4;
   }
 
-  > .highlight {
+  > .highlight,
+  .tabbed-group
+  {
     @extend .py-4;
+  }
+
+  .tabbed-group {
+    .tabs {
+      @extend .mb-0;
+    }
   }
 
   figure {
