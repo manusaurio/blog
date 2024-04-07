@@ -13,6 +13,7 @@
 /** Bulma-based styles */
 .hugo-article {
   --article-padding: #{$article-padding};
+  --initial-indent: 1rem;
 }
 
 .hugo-article .hugo-article-body {
@@ -36,19 +37,29 @@
 
   h3 {
     @extend .pt-5;
-
-    &::first-letter {
-      margin-left: 1rem;
-    }
-
     @extend .is-size-3;
     @extend .is-size-4-mobile;
     @extend .has-text-weight-semibold;
+    &::first-letter {
+      margin-left: var(--initial-indent);
+    }
+
+  }
+
+  h4 {
+    @extend .pt-5;
+    @extend .is-size-4;
+    @extend .is-size-5-mobile;
+    @extend .has-text-weight-semibold;
+
+    &::first-letter {
+      margin-left: var(--initial-indent);
+    }
   }
 
   > p {
     &::first-letter {
-      margin-left: 1rem;
+      margin-left: var(--initial-indent);
     }
 
     @extend .is-size-4;
@@ -57,6 +68,29 @@
 
   > p + p {
     @extend .pt-4;
+  }
+
+  > ul, > ol {
+    &:not(ol) {
+      list-style: disc outside;
+    }
+
+    &:not(ul) {
+      list-style-type: decimal;
+    }
+
+    margin-left: 2em;
+    margin-top: 0.75em;
+    @extend .is-size-4;
+    @extend .is-size-5-mobile;
+
+    &:not(:last-child) {
+      margin-bottom: 0.75em;
+    }
+
+    li + li {
+      margin-top: .25em;
+    }
   }
 
   > .highlight,
